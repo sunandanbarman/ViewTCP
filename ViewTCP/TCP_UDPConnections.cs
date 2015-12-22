@@ -82,61 +82,6 @@ namespace Connections
     }
     class UDPConnections
     {
-        /*private List<UDP_ROW> getConnections<UDP_TABLE, UDP_ROW>(int ipVersion, 
-                                            ref string strErrorMessage)
-        {
-            UDP_ROW[] tableRows;
-            int dwResult = 0, buffSize = 0;
-            var dwNumEntriesField = typeof(UDP_TABLE).GetField("dwNumEntries");
-            IpHelperApi.GetExtendedUdpTable(IntPtr.Zero, ref buffSize, true, GlobalVar.AF_INET,
-                                            UDP_TABLE_CLASS.UDP_TABLE_OWNER_PID, 0);
-            dwResult = Marshal.GetLastWin32Error();
-            if (dwResult != IpHelperApi.ERROR_SUCCESS)
-            {
-                dwResult = Marshal.GetLastWin32Error();
-                strErrorMessage = IpHelperApi.GetErrorMessage(dwResult);
-                return null;
-            }
-            IntPtr udpTablePtr = Marshal.AllocHGlobal(buffSize);
-            try
-            {
-                IpHelperApi.GetExtendedUdpTable(udpTablePtr, ref buffSize, true, ipVersion,
-                      UDP_TABLE_CLASS.UDP_TABLE_OWNER_PID,0);
-
-                dwResult = Marshal.GetLastWin32Error();
-                if (dwResult != IpHelperApi.ERROR_SUCCESS) // error condition , return !! 
-                {
-                    strErrorMessage = IpHelperApi.GetErrorMessage(dwResult);
-                    return null;
-                }
-                // get the number of entries in the table
-                UDP_TABLE table = (UDP_TABLE)Marshal.PtrToStructure(udpTablePtr, typeof(UDP_TABLE));
-                int rowStructSize = Marshal.SizeOf(typeof(UDP_ROW));
-                uint numEntries = (uint)dwNumEntriesField.GetValue(table);
-
-                // buffer we will be returning
-                tableRows = new UDP_ROW[numEntries];
-
-                IntPtr rowPtr = (IntPtr)((long)udpTablePtr + 4);
-                for (int i = 0; i < numEntries; i++)
-                {
-                    UDP_ROW tcpRow = (UDP_ROW)Marshal.PtrToStructure(rowPtr, typeof(UDP_ROW));
-                    tableRows[i] = tcpRow;
-                    rowPtr = (IntPtr)((long)rowPtr + rowStructSize);   // next entry
-                }
-                
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(udpTablePtr);
-            }
-            return tableRows != null ? tableRows.ToList() : null;
-        } 
-        public List<MIB_UDPROW_OWNER_PID> getUDPv4Connections(ref string errorMessage)
-        {
-            return getConnections<MIB_UDPTABLE_OWNER_PID, MIB_UDPROW_OWNER_PID>(
-                                  GlobalVar.AF_INET, ref errorMessage);
-        }*/
         public List<MIB_UDPROW_OWNER_PID> getUDPv4Connections(ref string strErrorMessage)
         {
             MIB_UDPROW_OWNER_PID[] tTable;
