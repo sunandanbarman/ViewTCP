@@ -8,15 +8,12 @@ using System.Net;
 
 namespace Connections
 {
-//    public const int AF_INET  = 1;
-//    public const int AF_INET6 = 23;
     public static class GlobalVar
     {
         public const int AF_INET = 2;
         public const int AF_INET6= 23;
         public const int SYS_0 = 0; //name to be [System Process]
         public const int SYS_4 = 4; //name to be System 
-        //public const int SYS_8 = 8; //name to be System
     }
     enum FormatMessageFlags
     {
@@ -56,176 +53,7 @@ namespace Connections
         MIB_TCP_STATE_TIME_WAIT = 11,
         MIB_TCP_STATE_DELETE_TCB = 12
     }
-    public interface INTERFACE_MIB_OWNER_PID
-    {
-        uint state { get; set; }
-        uint localAddr { get; set; }
-        uint remoteAddr { get; set; }
-        byte[] localPort { get; set; }
-        byte[] remotePort { get; set; }
-        uint owningPid { get; set; }
-    }
     #endregion
-    public struct MIB_OWNER_PID_TCPV4 : INTERFACE_MIB_OWNER_PID
-    {
-        public uint localAddr
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public byte[] localPort
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint owningPid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint remoteAddr
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public byte[] remotePort
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint state
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-    }
-    public struct MIB_OWNER_PID_TCPV6 : INTERFACE_MIB_OWNER_PID
-    {
-        public uint localAddr
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public byte[] localPort
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint owningPid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint remoteAddr
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public byte[] remotePort
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public uint state
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-    }
     #region TCP6
 
     [StructLayout(LayoutKind.Sequential)]
