@@ -14,9 +14,16 @@ namespace ViewTCP
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var os = Environment.OSVersion;
+            if ((os.Version.Major >= 6) && (os.Version.Minor >= 0))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            } else
+            {
+                MessageBox.Show("Unable to launch ! Supported OS are Vista and above ...", "ViewTCP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
