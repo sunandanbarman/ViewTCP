@@ -33,14 +33,7 @@ namespace ViewTCP
         private const string TCPv6 = "TCPv6";
         private const string UDPv4 = "UDPv4";
         private const string UDPv6 = "UDPv6";
-        //     private List<MIB_TCP6ROW_OWNER_PID> listTCPv6;
-        //   private List<MIB_TCPROW_OWNER_PID> listTCPv4;
-
-        //  private List<MIB_UDP6ROW_OWNER_PID> listUDPv6;
-        //    private List<MIB_UDPROW_OWNER_PID> listUDPv4;
-
         private Dictionary<string, List<int>> listViewData;
-        //private Dictionary<string, int> newItemsList;
 
         public static void Log(string logMessage, TextWriter w)
         {
@@ -162,10 +155,7 @@ namespace ViewTCP
                     byte[] bytes = addr.GetAddressBytes();
                     for (int i = 0; i < 16; i += 2)
                     {
-                        /*if ((bytes[i] == 0) && (bytes[i + 1] == 0))
-                            sResult.Append("0:0");
-                        else*/
-                            sResult.AppendFormat("{0:x}{1:x}:", bytes[i], bytes[i + 1]);
+                        sResult.AppendFormat("{0:x}{1:x}:", bytes[i], bytes[i + 1]);
                     }
                     sResult.Length = sResult.Length - 1;//last colon
                 }
@@ -273,24 +263,6 @@ namespace ViewTCP
                     lItem[i].SubItems.Add("-");
                     rowInformation = rowInformation + "::" + "***" + "::" + "***" + "::" + "-";
                 }
-                //lItem[i].SubItems.Add(DateTime.Now.ToString("en-US")); 
-                // date-time info; will be used to check for item's uniqueness
-                /*switch(protocol)
-                {
-                    case TCPv4:
-                        lItem[i].ForeColor = Color.CadetBlue;
-                        break;
-                    case TCPv6:
-                        lItem[i].ForeColor = Color.Ivory;
-                        break;
-                    case UDPv4:
-                        lItem[i].ForeColor = Color.Honeydew;
-                        break;
-                    case UDPv6:
-                        lItem[i].ForeColor = Color.Goldenrod;
-                        break;
-
-                }*/
                 addOrUpdate(listViewData, rowInformation, i);
             }
             listView1.Items.AddRange(lItem);
@@ -431,9 +403,6 @@ namespace ViewTCP
                 toAddThisItems = new List<string>();
             }
             String list = getDictionaryFields_IntList(listViewData);
-            //Log("listViewData ::" +list, fw);
-            //list = getDictionaryFields(newItemsList );
-            //Log("newItemsList ::" + list,fw);
             //Check which endpoints have to be removed
             List<string> keys = listViewData.Keys.ToList();
             List<int> index;
